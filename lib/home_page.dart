@@ -6,23 +6,39 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    var deviceSize = MediaQuery.of(context).size;
+    var deviceSize = MediaQuery.of(context).orientation;
+    var deviceHeight = MediaQuery.of(context).size.height;
+    var deviceWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
       appBar: AppBar(
         title: const Text('Resonsive UI'),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
+      body: deviceSize == Orientation.portrait ? Column(
         children: [
           Container(
-            height: deviceSize.height * 0.3,
-            width: deviceSize.width * 0.5,
-            color: Colors.amber.shade700,
-          )
+            color: Colors.red,
+            height: deviceHeight * 0.3,
+          ),
+          Expanded(
+            child: Container(
+              color: Colors.blue,
+            ),
+          ),
         ],
-      ),
+      ) : Row(
+        children: [
+          Container(
+            color: Colors.red,
+            width: deviceWidth * 0.3,
+          ),
+          Expanded(
+            child: Container(
+              color: Colors.blue,
+            ),
+          ),
+        ],
+      )
     );
   }
 }
