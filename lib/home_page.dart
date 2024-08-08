@@ -9,36 +9,17 @@ class HomePage extends StatelessWidget {
     var deviceSize = MediaQuery.of(context).orientation;
     var deviceHeight = MediaQuery.of(context).size.height;
     var deviceWidth = MediaQuery.of(context).size.width;
+    var textSize =  MediaQuery.of(context).textScaler;
 
     return Scaffold(
       appBar: AppBar(
         title: const Text('Resonsive UI'),
       ),
-      body: deviceSize == Orientation.portrait ? Column(
+      body: Column(
         children: [
-          Container(
-            color: Colors.red,
-            height: deviceHeight * 0.3,
-          ),
-          Expanded(
-            child: Container(
-              color: Colors.blue,
-            ),
-          ),
+          Text('Hello World!', style: TextStyle(fontSize: textSize.scale(40)),)
         ],
-      ) : Row(
-        children: [
-          Container(
-            color: Colors.red,
-            width: deviceWidth * 0.3,
-          ),
-          Expanded(
-            child: Container(
-              color: Colors.blue,
-            ),
-          ),
-        ],
-      )
+      ),
     );
   }
 }
