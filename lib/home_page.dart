@@ -10,6 +10,7 @@ class HomePage extends StatelessWidget {
     var deviceHeight = MediaQuery.of(context).size.height;
     var deviceWidth = MediaQuery.of(context).size.width;
     var textSize =  MediaQuery.of(context).textScaler;
+    var brightness = MediaQuery.of(context).platformBrightness;
 
     return Scaffold(
       appBar: AppBar(
@@ -17,7 +18,9 @@ class HomePage extends StatelessWidget {
       ),
       body: Column(
         children: [
+          brightness == Brightness.dark ?
           Text('Hello World!', style: TextStyle(fontSize: textSize.scale(40)),)
+              : Text('light')
         ],
       ),
     );
