@@ -17,10 +17,13 @@ class HomePage extends StatelessWidget {
         title: const Text('Resonsive UI'),
       ),
       body: Column(
-        children: [
+      children: [
           brightness == Brightness.dark ?
-          Text('Hello World!', style: TextStyle(fontSize: textSize.scale(40)),)
-              : Text('light')
+          Container(height: deviceHeight* 0.7,color: Colors.black,)
+              : Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text('light', style: TextStyle(fontSize: textSize.scale(24)),),
+              )
         ],
       ),
     );
