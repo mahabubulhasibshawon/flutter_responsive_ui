@@ -7,8 +7,8 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
 
     var deviceSize = MediaQuery.of(context).orientation;
-    var deviceHeight = MediaQuery.of(context).size.height;
-    var deviceWidth = MediaQuery.of(context).size.width;
+    // var deviceHeight = MediaQuery.of(context).size.height;
+    // var deviceWidth = MediaQuery.of(context).size.width;
     var textSize =  MediaQuery.of(context).textScaler;
 
     return Scaffold(
