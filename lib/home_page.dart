@@ -16,14 +16,20 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Resonsive UI'),
       ),
-      body: Column(
-      children: [
-          brightness == Brightness.dark ?
-          Container(height: deviceHeight* 0.7,color: Colors.black,)
-              : Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text('light', style: TextStyle(fontSize: textSize.scale(24)),),
+      body: Row(
+        children: [
+          Flexible(
+            flex: 7,
+              child: Container(
+                color: Colors.red,
               )
+          ),
+          Flexible(
+            flex: 2,
+              child: Container(
+                color: Colors.blue,
+              )
+          ),
         ],
       ),
     );
