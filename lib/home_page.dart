@@ -11,27 +11,109 @@ class HomePage extends StatelessWidget {
     var deviceWidth = MediaQuery.of(context).size.width;
     var textSize =  MediaQuery.of(context).textScaler;
     var brightness = MediaQuery.of(context).platformBrightness;
+    var size = MediaQuery.of(context).size;
 
     return Scaffold(
       appBar: AppBar(
         title: const Text('Resonsive UI'),
       ),
-      body: Row(
-        children: [
-          Flexible(
-            flex: 7,
-              child: Container(
-                color: Colors.red,
-              )
-          ),
-          Flexible(
-            flex: 2,
-              child: Container(
-                color: Colors.blue,
-              )
-          ),
-        ],
-      ),
+      body: LayoutBuilder(
+        builder: (ctx, constrains){
+          if(constrains.maxWidth> 1000){
+            return Row(
+              children: [
+                Container(
+                  width: size.width * 0.3,
+                  height: size.height - kBottomNavigationBarHeight,
+                  child: ListView(
+                    children: [
+                      ListTile(
+                        title: Text('Accoount'),
+                        leading: Icon(Icons.person),
+                      ),
+                      ListTile(
+                        title: Text('Dashboard'),
+                        leading: Icon(Icons.dashboard),
+                      ),
+                      ListTile(
+                        title: Text('Settings'),
+                        leading: Icon(Icons.settings),
+                      ),
+                    ],
+                  ),
+                ),
+                Expanded(child: ListView(
+                  children: [
+                    Container(
+                      height: deviceHeight * 0.2,
+                      color: Colors.green,
+                    ),
+                    Container(
+                      height: deviceHeight * 0.2,
+                      color: Colors.red,
+                    ),
+                    Container(
+                      height: deviceHeight * 0.2,
+                      color: Colors.green,
+                    ),
+                    Container(
+                      height: deviceHeight * 0.2,
+                      color: Colors.red,
+                    ),
+                    Container(
+                      height: deviceHeight * 0.2,
+                      color: Colors.green,
+                    ),
+                    Container(
+                      height: deviceHeight * 0.2,
+                      color: Colors.red,
+                    ),
+                    Container(
+                      height: deviceHeight * 0.2,
+                      color: Colors.green,
+                    ),
+                    Container(
+                      height: deviceHeight * 0.2,
+                      color: Colors.red,
+                    ),
+                  ],
+                )
+                )
+              ],
+            );
+          }
+          else{
+            return ListView(
+              children: [
+                Container(
+                  height: deviceHeight * 0.2,
+                  color: Colors.black,
+                ),
+                Container(
+                  height: deviceHeight * 0.2,
+                  color: Colors.white,
+                ),
+                Container(
+                  height: deviceHeight * 0.2,
+                  color: Colors.green,
+                ),
+                Container(
+                  height: deviceHeight * 0.2,
+                  color: Colors.black,
+                ),
+                Container(
+                  height: deviceHeight * 0.2,
+                  color: Colors.white,
+                ),
+                Container(
+                  height: deviceHeight * 0.2,
+                  color: Colors.green,
+                ),
+              ],
+            );
+          }
+        },
+      )
     );
   }
 }
