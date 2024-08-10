@@ -17,102 +17,14 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Resonsive UI'),
       ),
-      body: LayoutBuilder(
-        builder: (ctx, constrains){
-          if(constrains.maxWidth> 1000){
-            return Row(
-              children: [
-                Container(
-                  width: size.width * 0.3,
-                  height: size.height - kBottomNavigationBarHeight,
-                  child: ListView(
-                    children: [
-                      ListTile(
-                        title: Text('Accoount'),
-                        leading: Icon(Icons.person),
-                      ),
-                      ListTile(
-                        title: Text('Dashboard'),
-                        leading: Icon(Icons.dashboard),
-                      ),
-                      ListTile(
-                        title: Text('Settings'),
-                        leading: Icon(Icons.settings),
-                      ),
-                    ],
-                  ),
-                ),
-                Expanded(child: ListView(
-                  children: [
-                    Container(
-                      height: deviceHeight * 0.2,
-                      color: Colors.green,
-                    ),
-                    Container(
-                      height: deviceHeight * 0.2,
-                      color: Colors.red,
-                    ),
-                    Container(
-                      height: deviceHeight * 0.2,
-                      color: Colors.green,
-                    ),
-                    Container(
-                      height: deviceHeight * 0.2,
-                      color: Colors.red,
-                    ),
-                    Container(
-                      height: deviceHeight * 0.2,
-                      color: Colors.green,
-                    ),
-                    Container(
-                      height: deviceHeight * 0.2,
-                      color: Colors.red,
-                    ),
-                    Container(
-                      height: deviceHeight * 0.2,
-                      color: Colors.green,
-                    ),
-                    Container(
-                      height: deviceHeight * 0.2,
-                      color: Colors.red,
-                    ),
-                  ],
-                )
-                )
-              ],
-            );
-          }
-          else{
-            return ListView(
-              children: [
-                Container(
-                  height: deviceHeight * 0.2,
-                  color: Colors.black,
-                ),
-                Container(
-                  height: deviceHeight * 0.2,
-                  color: Colors.white,
-                ),
-                Container(
-                  height: deviceHeight * 0.2,
-                  color: Colors.green,
-                ),
-                Container(
-                  height: deviceHeight * 0.2,
-                  color: Colors.black,
-                ),
-                Container(
-                  height: deviceHeight * 0.2,
-                  color: Colors.white,
-                ),
-                Container(
-                  height: deviceHeight * 0.2,
-                  color: Colors.green,
-                ),
-              ],
-            );
-          }
-        },
+      body: Container(
+        height: size.height - kBottomNavigationBarHeight,
+        width: size.width,
+        child: Center(
+          child: AspectRatio(aspectRatio: 16/9,child: Container(
+            color: Colors.red,
+          ),),
+        )
       )
     );
   }
